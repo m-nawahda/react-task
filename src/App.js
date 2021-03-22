@@ -19,7 +19,7 @@ class App extends Component {
         <Switch>
           <Route
             exact
-            path="/home"
+            path="/"
             render={(props) => (
               <NumberEnter
                 submit={(value) => {
