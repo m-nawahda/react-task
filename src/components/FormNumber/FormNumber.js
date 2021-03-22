@@ -1,12 +1,15 @@
 import React from "react";
 import classes from "./FormNumber.module.css";
-import { NavLink } from "react-router-dom";
 
 const FormNumber = (props) => {
   const [value, setValue] = React.useState(1);
   const valueChangedHandler = (event) => setValue(event.target.value);
+  const submitHandler = (event) => {
+    event.preventDefault();
+    props.submit(value);
+  };
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <label className={classes.TextFeild} htmlFor={classes.NumberFeild}>
         Please Enter a Number
       </label>
@@ -18,9 +21,7 @@ const FormNumber = (props) => {
         max="100"
         onChange={valueChangedHandler}
       />
-      <NavLink className={classes.NextBtn} to={"/play/" + value}>
-        <input type="submit" value="Next-->" />
-      </NavLink>
+      <input className={classes.NextBtn} type="submit" value="Next-->" />
     </form>
   );
 };
