@@ -7,28 +7,28 @@ const PlayRegion = (props) => {
   const [excpectedValue, setExcpectedValue] = React.useState(initValue);
   const [min, setMin] = React.useState(1);
   const [max, setMax] = React.useState(100);
-  const [numbers, /* setNumbers */] = React.useState([]);
-//  const isFirstRender = React.useRef(true);
+  const [numbers, setNumbers] = React.useState([]);
   const actualValue = React.useRef(props.excpectedValue);
 
   const addNumberHandler = (min, max) => {
-    /*  let array = [...numbers];
+    let array = [...numbers];
     array.push(excpectedValue);
-    setNumbers(array); */
+    setNumbers(array);
     return Math.floor(Math.random() * (max - min + 1)) + min;
-    //setExcpectedValue(expectedNumber);
   };
 
   const setMaxHandler = () => {
     const updatedMax = excpectedValue - 1;
     setMax(updatedMax);
     setExcpectedValue(addNumberHandler(min, updatedMax));
+    validateRange(min, updatedMax);
   };
 
   const setMinHandler = () => {
     const updatedMin = excpectedValue + 1;
     setMin(updatedMin);
     setExcpectedValue(addNumberHandler(updatedMin, max));
+    validateRange(updatedMin, max);
   };
 
   const validateEqualityHandler = () => {
@@ -39,29 +39,13 @@ const PlayRegion = (props) => {
       props.history.replace("/");
     }
   };
-/* 
-  const validateRange = () => {
+
+  const validateRange = (min, max) => {
     if (actualValue.current > max || actualValue.current < min) {
       alert("you have fail!");
       props.history.replace("/");
     }
-  }; */
-
-  /* React.useEffect(() => {
-    if (!isFirstRender.current) {
-      addNumberHandler();
-    }
-  }, [min, max]);
-
-  React.useEffect(() => {
-    if (!isFirstRender.current) {
-      validateRange();
-    }
-  }, [excpectedValue]);
-
-  React.useEffect(() => {
-    isFirstRender.current = false;
-  }); */
+  };
 
   return (
     <div className={classes.Box}>
