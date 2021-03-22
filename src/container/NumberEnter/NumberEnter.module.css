@@ -1,0 +1,21 @@
+.Box {
+  width: 350px;
+  height: 450px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px rgb(0, 0, 0);
+  animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

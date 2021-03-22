@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import classes from "./App.module.css";
+import { Component } from "react";
+import NumberEnter from "./container/NumberEnter/NumberEnter";
+import PlayRegion from "./container/PlayRegion/PlayRegion"
+import { Switch, Route } from "react-router";
+class App extends Component {
+  render() {
+    return (
+      <div className={classes.App}>
+        <Switch>
+          <Route exact path="/" component={NumberEnter} />
+          <Route path="/play/:value" component={PlayRegion} />
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;

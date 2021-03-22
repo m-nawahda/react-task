@@ -1,0 +1,24 @@
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.TextFeild {
+  margin: 10px auto;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.NumberFeild {
+  width: 250px;
+  margin: 10px auto;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  box-shadow: -1px 1px 7px rgba(0, 0, 0, 0.6);
+}
+
+.NextBtn {
+  margin: 10px auto;
+}
